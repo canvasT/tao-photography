@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 100px 30px 0px;
+  box-sizing: border-box;
+  align-items: flex-end;
+}
+
+.photo {
+  width: 400px;
+  display: inline-block;
+  margin: 0px 30px;
+}

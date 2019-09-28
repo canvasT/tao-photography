@@ -1,0 +1,20 @@
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 110px 135px;
+  align-items: flex-end;
+}
+
+.gallery-list h2 {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.gallery {
+  width: 200px;
+  margin: 0px 30px 60px;
+}
+
+.cover {
+  border: 1px solid #000;
+}

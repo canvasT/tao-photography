@@ -1,0 +1,40 @@
+{
+  "name": "tao-photography",
+  "description": "Photographer Tao's personal website",
+  "private": true,
+  "version": "0.0.1",
+  "author": "canvasT <fengtaotao082913@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/canvasT/tao-photography/issues"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.277",
+    "gatsby-image": "^1.0.55",
+    "gatsby-link": "^1.6.46",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-sharp": "^1.6.46",
+    "gatsby-source-contentful": "^1.3.54",
+    "gatsby-transformer-remark": "^1.7.44",
+    "lodash": "^4.17.10"
+  },
+  "homepage": "https://github.com/canvasT/tao-photography",
+  "keywords": [
+    "gatsby",
+    "contentful",
+    "gallery",
+    "photography"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:canvasT/tao-photography.git"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "heroku-postbuild": "gatsby build",
+    "serve": "gatsby serve",
+    "setup": "npm install --no-save contentful-import yargs-parser axios chalk && node ./setup.js"
+  }
+}
