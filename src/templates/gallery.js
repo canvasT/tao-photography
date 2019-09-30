@@ -1,6 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
-import styles from  './gallery.module.css'
+import './gallery.css'
 
 class GalleryTemplate extends React.Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class GalleryTemplate extends React.Component {
       return null;
     }
     
-    return (<div className={styles.container}>
+    return (<div className='container'>
       {
         images.map((image) => {
-          return <img className={styles.photo} key={image.photo.id} src={`${image.photo.file.url}?w=800`} />
+          return <img className='photo' key={image.photo.id} src={`${image.photo.file.url}?w=800`} />
         })
       }
     </div>)
