@@ -13,7 +13,7 @@ class GalleryList extends React.Component {
           photoGalleryList.map((gallery, index) => {
             return <a href={`/gallery/${gallery.node.id}`} key={gallery.node.title.id}>
               <div className='gallery'>
-                <img className='cover' src={gallery.node.coverImage.file.url}></img>
+                <img className='cover' src={gallery.node.coverImage.file.url + '?w=400'}></img>
                 <h2>{gallery.node.title.title}</h2>
               </div>
             </a>

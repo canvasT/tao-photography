@@ -1,8 +1,10 @@
 .gallery-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 110px 135px;
+  padding: 110px 0 0;
   align-items: flex-end;
+  justify-content: flex-start;
+  margin: 0 auto;
 }
 
 .gallery-list h2 {
@@ -11,10 +13,34 @@
 }
 
 .gallery {
-  width: 200px;
-  margin: 0px 30px 60px;
+  width: 270px;
+  margin: 0px 15px 60px;
+  box-sizing: border-box;
 }
-
 .cover {
   border: 1px solid #000;
+}
+
+@media only screen and (min-width: 1200px) {
+  .gallery-list {
+    width: 1200px;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .gallery-list {
+    width: 900px;
+  }
+}
+
+@media only screen and (min-width: 600px ) and (max-width: 900px) {
+  .gallery-list {
+    width: 600px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .gallery-list {
+    width: 300px;
+  }
 }
