@@ -19,8 +19,8 @@ class GalleryTemplate extends React.Component {
           return <img className='photo' key={image.photo.id} src={`${image.photo.file.url}?w=800`} />
         })
       }
-      <a href='/gallery-list/'>
-          <img className='btn-nav-back' src='/nav-back.png'></img>
+      <a href='/gallery/gallery-list/'>
+          <img className='btn-nav-back' src='/gallery/nav-back.png'></img>
         </a>
     </div>)
   }
