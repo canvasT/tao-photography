@@ -1,26 +1,29 @@
-import React from 'react'
+import React from "react"
+import { Link } from "gatsby"
+
+import Layout from "../components/layout"
+// import Image from "../components/image"
+import SEO from "../components/seo"
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import styles from './index.css'
+require('./index.css')
 
-class RootIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const banner = get(this, 'props.data.contentfulImage.photo.file')
+const IndexPage = (props) => {
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
+  const banner = get(props, 'data.contentfulImage.photo.file')
 
-    return (
-      <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
-        <h1 className='title'>Tao Photography</h1>
-        <a href='./gallery-list/'>
-          <img className='banner' src={`${banner.url}?w=1200`} />
-        </a>
-      </div>
-    )
-  }
+  return <Layout>
+    <SEO title={siteTitle} />
+    <h1 className='title'>Tao Photography</h1>
+    <Link to='/gallery-list/'>
+      <img className='banner' alt="banner" src={`${banner.url}?w=1200`} />
+    </Link>
+    <Link to='/gallery-list/'>
+      <p className='link-enter'>Enter</p>
+    </Link>
+  </Layout>
 }
 
-export default RootIndex
+export default IndexPage
 
 export const pageQuery = graphql`
   query HomeQuery {

@@ -1,61 +1,65 @@
-import React from 'react'
+import React from "react"
+import { Link, withPrefix } from "gatsby"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import './gallery-list.css'
+import { useStaticQuery, graphql } from "gatsby"
+require('./gallery-list.css')
 
-class GalleryList extends React.Component {
-  render() {
-    const photoGalleryList = get(this, 'props.data.allContentfulPhotoGallery.edges')
+const IndexPage = (props) => {
 
-    return (
-      <div>
-        <div className='gallery-list' style={{ background: '#fff' }}>
-          {
-            photoGalleryList.map((gallery, index) => {
-              return <a href={`/gallery/gallery/${gallery.node.id}`} key={gallery.node.title.id}>
-                <div className='gallery'>
-                  <img className='cover' src={gallery.node.coverImage.file.url + '?w=400'}></img>
-                  <h2>{gallery.node.title.title}</h2>
-                </div>
-              </a>
-            })
-          }
-        </div>
-        <a href='/gallery'>
-          <img className='btn-nav-back' src='/gallery/nav-back.png'></img>
-        </a>
-      </div>
-    )
-  }
-}
-
-export default GalleryList
-
-export const pageQuery = graphql`
-  query PhotoGalleryList {
-    allContentfulPhotoGallery {
-      edges {
-        node {
-          id
-          author {
+  const data = useStaticQuery(graphql`
+    query PhotoGalleryList {
+      allContentfulPhotoGallery {
+        edges {
+          node {
             id
-            name
-          }
-          coverImage {
-            id
-            title
-            file {
-              url
-              fileName
-              contentType
+            author {
+              id
+              name
             }
-          }
-          title {
-            title
-            id
+            coverImage {
+              id
+              title
+              file {
+                url
+                fileName
+                contentType
+              }
+            }
+            title {
+              title
+              id
+            }
           }
         }
       }
     }
-  }
-`
+  `)
+
+  const photoGalleryList = data.allContentfulPhotoGallery.edges
+
+  return <Layout>
+    <SEO title="gallery list" />
+    <div>
+      <div className='gallery-list' style={{ background: '#fff' }}>
+        {
+          photoGalleryList.map((gallery, index) => {
+            return <a href={withPrefix(`/gallery/${gallery.node.id}`)} key={gallery.node.title.id}>
+              <div className='gallery'>
+                <img className='cover' src={gallery.node.coverImage.file.url + '?w=400'}></img>
+                <h2>{gallery.node.title.title}</h2>
+              </div>
+            </a>
+          })
+        }
+      </div>
+      <Link to='/'>
+        <img className='btn-nav-back' src={withPrefix('/nav-back.png')}></img>
+      </Link>
+    </div>
+  </Layout>
+}
+
+export default IndexPage

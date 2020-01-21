@@ -1,32 +1,35 @@
-import React from 'react'
-import get from 'lodash/get'
-import './gallery.css'
+import React from "react"
+import { Link, withPrefix } from "gatsby"
 
-class GalleryTemplate extends React.Component {
-  constructor(props) {
-    super(props)
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { useStaticQuery, graphql } from "gatsby"
+require('./gallery.css')
+
+const IndexPage = ({data}) => {
+
+  const images = data.contentfulPhotoGallery.images
+
+  if (images === null || !images) {
+    return null;
   }
 
-  render() {
-    const images = get(this, 'props.data.contentfulPhotoGallery.images');
-    if (images === null || !images) {
-      return null;
-    }
-    
-    return (<div className='container'>
+  return <Layout>
+    <SEO title="gallery" />
+    <div className='container'>
       {
         images.map((image) => {
           return <img className='photo' key={image.photo.id} src={`${image.photo.file.url}?w=800`} />
         })
       }
-      <a href='/gallery/gallery-list/'>
-          <img className='btn-nav-back' src='/gallery/nav-back.png'></img>
-        </a>
-    </div>)
-  }
+      <Link to={'/gallery-list/'}>
+          <img className='btn-nav-back' src={withPrefix('/nav-back.png')}></img>
+      </Link>
+    </div>
+  </Layout>
 }
 
-export default GalleryTemplate
+export default IndexPage
 
 export const pageQuery = graphql`
 query PhotoGallery($galleryId: String!) {

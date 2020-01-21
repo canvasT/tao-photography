@@ -4,6 +4,7 @@ try {
   // Load the Contentful config from the .contentful.json
   contentfulConfig = require('./.contentful')
 } catch (_) {}
+console.log('contentfulConfig', contentfulConfig)
 
 // Overwrite the Contentful config with environment variables if they exist
 contentfulConfig = {
@@ -18,16 +19,47 @@ if (!spaceId || !accessToken) {
     'Contentful spaceId and the delivery token need to be provided.'
   )
 }
-console.log('contentfulConfig', contentfulConfig)
+
 module.exports = {
-  pathPrefix: '/gallery',
+  pathPrefix: '/graphy',
+  siteMetadata: {
+    title: `Tao PhotoGraphy`,
+    description: `留住身边美好的瞬间`,
+    author: `canvast@163.com`,
+  },
   plugins: [
-    'gatsby-transformer-remark',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
-    }
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: spaceId,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: accessToken,
+      },
+    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }
