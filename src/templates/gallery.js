@@ -16,14 +16,20 @@ const IndexPage = ({data}) => {
 
   return <Layout>
     <SEO title="gallery" />
-    <div className='container'>
+    <div>
+      <div className='imgs-container'>
       {
         images.map((image) => {
           return <img className='photo' key={image.photo.id} src={`${image.photo.file.url}?w=800`} />
         })
       }
-      <Link to={'/gallery-list/'}>
-          <img className='btn-nav-back' src={withPrefix('/nav-back.png')}></img>
+      </div>
+      <Link className='btn-nav-back' to='/gallery-list/'>
+        <img src={withPrefix('/nav-back.png')}></img>
+      </Link>
+
+      <Link className='btn-back-home' to='/'>
+        <img src={withPrefix('/icon-home.png')}></img>
       </Link>
     </div>
   </Layout>

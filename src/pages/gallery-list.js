@@ -48,15 +48,15 @@ const IndexPage = (props) => {
           photoGalleryList.map((gallery, index) => {
             return <a href={withPrefix(`/gallery/${gallery.node.id}`)} key={gallery.node.title.id}>
               <div className='gallery'>
-                <img className='cover' src={gallery.node.coverImage.file.url + '?w=400'}></img>
+                <img className='cover' src={gallery.node.coverImage.file.url + '?w=220'}></img>
                 <h2>{gallery.node.title.title}</h2>
               </div>
             </a>
           })
         }
       </div>
-      <Link to='/'>
-        <img className='btn-nav-back' src={withPrefix('/nav-back.png')}></img>
+      <Link className='btn-nav-back' to='/'>
+        <img src={withPrefix('/nav-back.png')}></img>
       </Link>
     </div>
   </Layout>
