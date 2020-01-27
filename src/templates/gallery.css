@@ -7,6 +7,7 @@
   height: 30px;
   top: 30px;
   left: 30px;
+  background-color: #fff;
 }
 
 .btn-nav-back img {
@@ -14,23 +15,26 @@
   height: 20px;
 }
 
+.btn-back-home {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  right: 30px;
+  background-color: #fff;
+}
+
+.btn-back-home img {
+  width: 20px;
+  height: 20px;
+}
+
 @media only screen and (min-width: 960px) {
 
-  .btn-back-home {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    top: 30px;
-    right: 30px;
-  }
   
-  .btn-back-home img {
-    width: 20px;
-    height: 20px;
-  }
 
   .imgs-container {
     overflow-x: scroll;
@@ -95,18 +99,18 @@
 }
 
 @media only screen and (min-width: 300px) and (max-width: 600px) {
-  .container {
+  .imgs-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     box-sizing: border-box;
     align-items: center;
     width: 100%;
-    padding-top: 150px;
+    padding-top: 110px;
   }
   .photo {
     width: 300px;
-    display: inline-block;
+    display: block;
     margin: 0px auto 150px;
   }
 }
