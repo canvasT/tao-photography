@@ -63,12 +63,27 @@
 @media only screen and (min-width: 600px ) and (max-width: 960px) {
   .gallery-list {
     width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 110px 0 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
   }
 
+  /* .gallery-list h2 {
+    margin: 0;
+  } */
+
   .gallery {
-    width: 100%;
+    width: 220px;
     margin: 0px 0px 60px;
     box-sizing: border-box;
+  }
+
+  .gallery-wrapper {
+    display: flex;
+    flex-direction: column;
   }
   
   .cover {
@@ -77,6 +92,7 @@
     height: 148px;
     object-fit: cover;
     box-sizing: border-box;
+    /* margin-right: 15px; */
   }
 }
 

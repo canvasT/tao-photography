@@ -33,9 +33,6 @@
 }
 
 @media only screen and (min-width: 960px) {
-
-  
-
   .imgs-container {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -98,7 +95,7 @@
   } */
 }
 
-@media only screen and (min-width: 300px) and (max-width: 600px) {
+@media only screen and (min-width: 300px) and (max-width: 960px) {
   .imgs-container {
     display: flex;
     flex-direction: column;
@@ -112,5 +109,12 @@
     width: 300px;
     display: block;
     margin: 0px auto 150px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 960px) {
+
+  .photo {
+    width: 500px;
   }
 }

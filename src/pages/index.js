@@ -13,13 +13,15 @@ const IndexPage = (props) => {
 
   return <Layout>
     <SEO title={siteTitle} />
-    <h1 className='title'>Tao Photography</h1>
-    <Link to='/gallery-list/'>
-      <img className='banner' alt="banner" src={`${banner.url}?w=1200`} />
-    </Link>
-    <Link to='/gallery-list/'>
-      <p className='link-enter'>Enter</p>
-    </Link>
+    <div className="content">
+      <h1 className='title'>Tao Photography</h1>
+      <Link to='/gallery-list/'>
+        <img className='banner' alt="banner" src={`${banner.url}?w=1200`} />
+      </Link>
+      <Link to='/gallery-list/'>
+        <p className='link-enter'>Enter</p>
+      </Link>
+    </div>
   </Layout>
 }
 
